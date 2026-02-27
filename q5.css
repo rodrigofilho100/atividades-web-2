@@ -1,0 +1,15 @@
+#lista{
+    display: flex;
+    gap: 30px;
+}
+a:visited{
+    color: rgb(107, 107, 255);
+}
+a:link{
+    color: rgb(156, 156, 255);
+}
+a:hover{
+    background-color: rgb(91, 255, 91);
+    color: rgb(0, 38, 255);
+    border-style: dashed;
+}
