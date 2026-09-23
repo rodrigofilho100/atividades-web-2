@@ -42,3 +42,4 @@ class LivroService{
         else return this.repository.excluir(id);
     }
 }
+module.exports=LivroService

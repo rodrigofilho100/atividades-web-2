@@ -1,6 +1,6 @@
 class CategoriaService{
-    constructor(livroRepository){
-        this.repository=livroRepository;
+    constructor(categoriaRepository){
+        this.repository=categoriaRepository;
     }
     
     async cadastrar(dados){
@@ -11,34 +11,21 @@ class CategoriaService{
         return this.repository.listarTodos();
     }
     async procurarPorId(id){
-        const livro=await this.repository.buscarPorId(id);
-        if (!livro){
-            throw new Error({"erro": "Livro não encontrado"});
+        const categoria=await this.repository.buscarPorId(id);
+        if (!categoria){
+            throw new Error({"erro": "Categoria não encontrada"});
         }
-        else return livro;
+        else return categoria;
     }
-    async buscaAvancada(filtro){
-        condicoes={}
-        if (filtro.titulo){
-            condicoes.titulo=[Op.like]: `%${filtros.titulo}%`;
-        }
-        if (filtro.ano){
-            condicoes.ano= Number(filtro.ano);
-        }
-        if (filtros.disponivel !== undefined) {
-            condicoes.disponivel = filtros.disponivel === 'true';
-        }
-        return this.repository.listarTodos(condicoes);
-    }
-    
 
     async atualizar(id, dados){
         return this.repository.atualizar(id, dados);
     }
 
     async excluir(id){
-        const livro=await this.repository.buscarPorId(id);
-        if (!livro) throw new Error("erro": "Livro não encontrado");
+        const categoria=await this.repository.buscarPorId(id);
+        if (!categoria) throw new Error("erro": "Categoria não encontrada");
         else return this.repository.excluir(id);
     }
 }
+module.exports=CategoriaService

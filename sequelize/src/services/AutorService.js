@@ -24,3 +24,4 @@ class AutorService{
         else return this.repository.excluir(id);
     }
 }
+module.exports=AutorService
