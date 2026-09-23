@@ -8,7 +8,7 @@ const sequelize = require("../config/database");
 class Autor extends Model{}
 
 Autor.init({
-  id:{
+  autorId:{
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
@@ -20,7 +20,8 @@ Autor.init({
   email:{
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
+    unique: true,
+    validate: {isEmail: true}
   },
   nacionalidade:{
     type: DataTypes.STRING,
@@ -34,5 +35,5 @@ Autor.init({
         tableName: "autores"
 }
 );
-
+Autor.hasMany(Livro, {foreignKey: "autorId"});
 module.exports = Autor;

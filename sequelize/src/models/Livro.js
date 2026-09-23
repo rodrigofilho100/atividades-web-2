@@ -8,7 +8,7 @@ const sequelize = require("../config/database");
 class Livro extends Model{}
 
 Livro.init({
-  id:{
+  livroId:{
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
@@ -29,6 +29,7 @@ Livro.init({
   },
   disponivel:{
     type: DataTypes.BOOLEAN,
+    defaultValue: true,
     allowNull: false
   },
   autorId:{
@@ -43,5 +44,6 @@ Livro.init({
         tableName: "livros"
 }
 );
-
+Livro.belongsTo(Autor, {foreignKey: "autorId"});
+Livro.belongsToMany(Categoria, {through: "LivroCategoria"});
 module.exports = Livro;

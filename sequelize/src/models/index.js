@@ -1,3 +1,4 @@
+// acho q vai deletar isso
 const Autor = require("./Autor");
 const Livro = require("./Livro");
 const Categoria = require("./Categoria");

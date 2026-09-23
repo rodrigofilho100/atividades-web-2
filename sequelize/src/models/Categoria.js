@@ -6,7 +6,7 @@ const sequelize = require("../config/database");
 class Categoria extends Model {}
 
 Categoria.init({
-    id:{
+    categoriaId:{
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement:true
@@ -26,5 +26,5 @@ Categoria.init({
         tableName: "categorias"
 }
 )
-
+Categoria.belongsToMany(Livro, {through: "LivroCategoria"});
 module.exports = Categoria;
